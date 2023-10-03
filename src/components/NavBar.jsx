@@ -37,7 +37,7 @@ const NavBar = () => {
         </ul>
         <Button
           title="Sign-in"
-          containerStyles="hidden sm:block md:block bg-transparent border border-white text-white hover:bg-white hover: text-slate-700 rounded-full min-w-[130px]"
+          containerStyles="hidden sm:block md:block bg-transparent border border-white text-white hover:bg-white hover:text-slate-700 rounded-full min-w-[130px]"
         />
         <button
           onClick={() => setOpen((prev) => !prev)}

@@ -1,5 +1,5 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
-import Button from "./Button";
+import Button from './Button'
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto px-20 lg:px-20 py-20 flex flex-col gap-10 md:flex-row justify-between border-t border-slate-800">
         <div className="flex">
           <p className="font-bold text-center">
-            Flavor<span className="text-green-500 text-xl">Verse</span>
+            recipe<span className="text-green-500 text-xl">Finder</span>
           </p>
         </div>
 
@@ -117,13 +117,9 @@ const Footer = () => {
           <Button
             title="Sign up"
             btnType="button"
-            conteinerStyle="mt-10 md:block bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-md min-w-[130px]"
+            containerStyles="mt-10 md:block bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-md min-w-[130px]"
           />
         </div>
-      </div>
-
-      <div className="flex items-center justify-center py-10">
-        <span className="text-gray-400 leading-10">CodeWave &copy; 2023</span>
       </div>
     </footer>
   );

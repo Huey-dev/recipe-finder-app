@@ -15,18 +15,25 @@ const Recipes = () => {
     setQuery(e.target.value);
   };
 
+  const handleSearchRecipe = async (e) => {
+    e.preventDefault();
+    fetchRecipe();
+  };
+
+  const showMore = () => {
+    setLimit((prev) => prev + 10);
+    fetchRecipe();
+  };
   const fetchRecipe = async () => {
     try {
-      const res = await fetchRecipes({ query, limit });
-      const data = await res.json();
-
+      const data = await fetchRecipes({ query, limit });
       setRecipes(data);
     } catch (error) {
     } finally {
       setLoading(false);
     }
   };
-
+  // render api data when page mounts
   useEffect(() => {
     setLoading(true);
     fetchRecipe();
@@ -39,7 +46,7 @@ const Recipes = () => {
   return (
     <div className="w-full">
       <div className="w-full flex items-center justify-center pt-10 px-0 md:px-10">
-        <form action="" className="w-full lg:w-2/4">
+        <form onSubmit={handleSearchRecipe} action="" className="w-full lg:w-2/4">
           <Searchbar
             placeholder="Chicken, Vegan, Cake"
             handleInputChange={handleChange}
@@ -53,6 +60,14 @@ const Recipes = () => {
             {recipes?.map((recipe, idx) => (
               <RecipeCard recipe={recipe} key={idx} />
             ))}
+          </div>
+          <div className="flex w-full item-center justify-center py-10">
+            <button
+              onClick={showMore}
+              className="bg-green-800 text-white px-3 py-1 rounded-full text-sm"
+            >
+              Show more
+            </button>
           </div>
         </>
       ) : (
